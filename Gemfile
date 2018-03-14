@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'jbuilder', '~> 2.5'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.5'
@@ -14,6 +15,7 @@ group :development, :test do
   gem 'rails_best_practices'
   gem 'rspec-rails', '~> 3.7'
   gem 'rubocop', '~> 0.53.0', require: false
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
 group :development do

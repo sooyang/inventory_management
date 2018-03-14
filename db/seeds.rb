@@ -1,18 +1,54 @@
-# This file should contain all the record creation needed to seed the database
-# with its default values.
-# The data can then be loaded with the rails db:seed command (or created
-# alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create(
-#    [{ name: 'Star Wars' }, { name: 'Lord of the Rings' }]
-#   )
-#   Character.create(name: 'Luke', movie: movies.first)
+sku1 = StockKeepingUnit.create(code: 'SKU-00000001')
+sku2 = StockKeepingUnit.create(code: 'SKU-00000002')
+sku3 = StockKeepingUnit.create(code: 'SKU-00000003')
 
-StockKeepingUnit.create(code: 'SKU-00000001')
-StockKeepingUnit.create(code: 'SKU-00000002')
-StockKeepingUnit.create(code: 'SKU-00000003')
+dc_sg = DistributionCenter.create(country: 'Singapore')
+dc_th = DistributionCenter.create(country: 'Thailand')
 
-DistributionCenter.create(country: 'Singapore')
-DistributionCenter.create(country: 'Thailand')
+Inventory.create(
+  stock_keeping_unit: sku1,
+  distribution_center: dc_sg,
+  quantity_reserved: 0,
+  quantity_shipped: 0,
+  quantity_available: 0
+)
+
+Inventory.create(
+  stock_keeping_unit: sku2,
+  distribution_center: dc_sg,
+  quantity_reserved: 0,
+  quantity_shipped: 0,
+  quantity_available: 0
+)
+
+Inventory.create(
+  stock_keeping_unit: sku3,
+  distribution_center: dc_sg,
+  quantity_reserved: 0,
+  quantity_shipped: 0,
+  quantity_available: 0
+)
+
+Inventory.create(
+  stock_keeping_unit: sku1,
+  distribution_center: dc_th,
+  quantity_reserved: 0,
+  quantity_shipped: 0,
+  quantity_available: 0
+)
+
+Inventory.create(
+  stock_keeping_unit: sku2,
+  distribution_center: dc_th,
+  quantity_reserved: 0,
+  quantity_shipped: 0,
+  quantity_available: 0
+)
+
+Inventory.create(
+  stock_keeping_unit: sku3,
+  distribution_center: dc_th,
+  quantity_reserved: 0,
+  quantity_shipped: 0,
+  quantity_available: 0
+)

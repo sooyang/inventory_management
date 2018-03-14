@@ -9,3 +9,10 @@
 #    [{ name: 'Star Wars' }, { name: 'Lord of the Rings' }]
 #   )
 #   Character.create(name: 'Luke', movie: movies.first)
+
+StockKeepingUnit.create(code: 'SKU-00000001')
+StockKeepingUnit.create(code: 'SKU-00000002')
+StockKeepingUnit.create(code: 'SKU-00000003')
+
+DistributionCenter.create(country: 'Singapore')
+DistributionCenter.create(country: 'Thailand')

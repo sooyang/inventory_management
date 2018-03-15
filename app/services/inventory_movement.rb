@@ -10,12 +10,16 @@ class InventoryMovement
   end
 
   def shipped
-    @inventory.decrement!(:quantity_available, @quantity)
-    @inventory.increment!(:quantity_shipped, @quantity)
+    @inventory.decrement(:quantity_available, @quantity)
+    @inventory.increment(:quantity_shipped, @quantity)
+    @inventory.save
+    @inventory
   end
 
   def reserve
-    @inventory.decrement!(:quantity_available, @quantity)
-    @inventory.increment!(:quantity_reserved, @quantity)
+    @inventory.decrement(:quantity_available, @quantity)
+    @inventory.increment(:quantity_reserved, @quantity)
+    @inventory.save
+    @inventory
   end
 end

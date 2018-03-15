@@ -19,10 +19,8 @@ module Api
 
     def reduction
       if @inventory
-        InventoryMovement.new(
-          @inventory, inventory_params[:quantity].to_i
-        ).shipped
-        render template: 'api/inventories/inventory', status: :ok
+        reduce_inventory
+        reduce_inventory_response
       else
         error
       end
@@ -30,10 +28,8 @@ module Api
 
     def reserve
       if @inventory
-        InventoryMovement.new(
-          @inventory, inventory_params[:quantity].to_i
-        ).reserve
-        render template: 'api/inventories/inventory', status: :ok
+        reserve_inventory
+        reserve_inventory_response
       else
         error
       end
@@ -48,6 +44,34 @@ module Api
     end
 
     private
+
+    def reduce_inventory
+      @inventory_shipped = InventoryMovement.new( @inventory, inventory_params[:quantity].to_i ).shipped
+    end
+
+    def reduce_inventory_response
+      if @inventory_shipped.errors.present?
+        render json: { errors: @inventory_shipped.errors.full_messages },
+               status: :bad_request
+      else
+        render template: 'api/inventories/inventory', status: :ok
+      end
+    end
+
+    def reserve_inventory
+      @inventory_reserved = InventoryMovement.new(
+        @inventory, inventory_params[:quantity].to_i
+      ).reserve
+    end
+
+    def reserve_inventory_response
+      if @inventory_reserved.errors.present?
+        render json: { errors: @inventory_reserved.errors.full_messages },
+               status: :bad_request
+      else
+        render template: 'api/inventories/inventory', status: :ok
+      end
+    end
 
     def distribution_center
       @distribution_center =

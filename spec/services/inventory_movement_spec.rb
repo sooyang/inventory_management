@@ -12,7 +12,7 @@ RSpec.describe InventoryMovement, type: :services do
   end
 
   describe '#reduction' do
-    let!(:inventory) { create :inventory }
+    let!(:inventory) { create :inventory, quantity_available: 100 }
 
     it 'should reduce the quantity available' do
       expect do
@@ -28,7 +28,7 @@ RSpec.describe InventoryMovement, type: :services do
   end
 
   describe '#reserve' do
-    let!(:inventory) { create :inventory }
+    let!(:inventory) { create :inventory, quantity_available: 100 }
 
     it 'should reduce the quantity available' do
       expect do

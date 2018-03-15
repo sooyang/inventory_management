@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :distribution_center do
-    country ["Thailand", "Singapore"].sample
+    country %w[Thailand Singapore].sample
   end
 end

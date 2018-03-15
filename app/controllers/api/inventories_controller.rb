@@ -4,7 +4,7 @@ module Api
     include JsonErrors
 
     before_action :find_inventory, only: %i[addition reduction reserve]
-    before_action :distribution_centers, only: [:current_stock_on_hand]
+    before_action :distribution_centers, only: %i[current_stock_on_hand current_pending_shipped]
 
     def addition
       if @inventory
@@ -43,7 +43,12 @@ module Api
       render template: 'api/inventories/current_stock_on_hand', status: :ok
     end
 
+    def current_pending_shipped
+      render template: 'api/inventories/current_pending_shipped', status: :ok
+    end
+
     private
+
     def distribution_center
       @distribution_center =
         DistributionCenter.find_by(

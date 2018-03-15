@@ -8,4 +8,9 @@ class InventoryMovement
   def receive
     @inventory.increment!(:quantity_available, @quantity)
   end
+
+  def shipped
+    @inventory.decrement!(:quantity_available, @quantity)
+    @inventory.increment!(:quantity_shipped, @quantity)
+  end
 end

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :inventories, only: [] do
       collection do
         post :addition
+        post :reduction
       end
     end
   end

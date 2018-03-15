@@ -13,4 +13,9 @@ class InventoryMovement
     @inventory.decrement!(:quantity_available, @quantity)
     @inventory.increment!(:quantity_shipped, @quantity)
   end
+
+  def reserve
+    @inventory.decrement!(:quantity_available, @quantity)
+    @inventory.increment!(:quantity_reserved, @quantity)
+  end
 end

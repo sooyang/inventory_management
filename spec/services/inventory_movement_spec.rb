@@ -26,4 +26,20 @@ RSpec.describe InventoryMovement, type: :services do
       end.to change { inventory.reload.quantity_shipped }.by(10)
     end
   end
+
+  describe '#reserve' do
+    let!(:inventory) { create :inventory }
+
+    it 'should reduce the quantity available' do
+      expect do
+        InventoryMovement.new(inventory, 10).reserve
+      end.to change { inventory.reload.quantity_available }.by(-10)
+    end
+
+    it 'should increase the quantity reserved' do
+      expect do
+        InventoryMovement.new(inventory, 10).reserve
+      end.to change { inventory.reload.quantity_reserved }.by(10)
+    end
+  end
 end

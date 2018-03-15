@@ -3,7 +3,7 @@ module Api
   class InventoriesController < ApplicationController
     include JsonErrors
 
-    before_action :find_inventory, only: %i[addition reduction]
+    before_action :find_inventory, only: %i[addition reduction reserve]
 
     def addition
       if @inventory
@@ -21,6 +21,17 @@ module Api
         InventoryMovement.new(
           @inventory, inventory_params[:quantity].to_i
         ).shipped
+        render template: 'api/inventories/inventory', status: :ok
+      else
+        error
+      end
+    end
+
+    def reserve
+      if @inventory
+        InventoryMovement.new(
+          @inventory, inventory_params[:quantity].to_i
+        ).reserve
         render template: 'api/inventories/inventory', status: :ok
       else
         error

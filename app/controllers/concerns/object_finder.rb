@@ -9,7 +9,9 @@ module ObjectFinder
 
   def distribution_centers
     @distribution_centers =
-      DistributionCenter.all.includes(:inventories, inventories: :stock_keeping_unit)
+      DistributionCenter.all.includes(
+        :inventories, inventories: :stock_keeping_unit
+      )
   end
 
   def stock_keeping_unit

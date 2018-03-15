@@ -67,7 +67,7 @@ describe 'POST /api/inventories/reduction', type: :request do
       it 'return an error message' do
         expect(JSON.parse(response.body, symbolize_names: true)).to eq(
           errors: [
-            "Quantity available must be greater than or equal to 0"
+            'Quantity available must be greater than or equal to 0'
           ]
         )
       end

@@ -11,6 +11,7 @@ gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.5'
 
 group :development, :test do
+  gem 'bullet'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_girl_rails'
   gem 'faker'
@@ -18,7 +19,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.7'
   gem 'rubocop', '~> 0.53.0', require: false
   gem 'shoulda-matchers', '~> 3.1'
-  gem 'bullet'
 end
 
 group :development do

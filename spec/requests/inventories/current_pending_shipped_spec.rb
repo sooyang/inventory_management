@@ -33,7 +33,7 @@ describe 'GET /api/inventories/current_pending_shipped', type: :request do
                       id: inventory.stock_keeping_unit.id,
                       code: inventory.stock_keeping_unit.code,
                       created_at: inventory.stock_keeping_unit.created_at.to_i,
-                      updated_at: inventory.stock_keeping_unit.updated_at.to_i,
+                      updated_at: inventory.stock_keeping_unit.updated_at.to_i
                     },
                     quantity_reserved: inventory.quantity_reserved,
                     created_at: inventory.created_at.to_i,

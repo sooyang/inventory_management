@@ -5,7 +5,8 @@ module Api
     include ObjectFinder
 
     before_action :find_inventory, only: %i[addition reduction reserve]
-    before_action :distribution_centers, only: %i[current_stock_on_hand current_pending_shipped]
+    before_action :distribution_centers,
+                  only: %i[current_stock_on_hand current_pending_shipped]
 
     def addition
       if @inventory

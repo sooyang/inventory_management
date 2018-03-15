@@ -41,6 +41,9 @@ GEM
     arel (8.0.0)
     ast (2.4.0)
     builder (3.2.3)
+    bullet (5.7.5)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.11.0)
     byebug (10.0.0)
     code_analyzer (0.4.7)
       sexp_processor
@@ -174,6 +177,7 @@ GEM
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     unicode-display_width (1.3.0)
+    uniform_notifier (1.11.0)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
@@ -182,6 +186,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bullet
   byebug
   factory_girl_rails
   faker

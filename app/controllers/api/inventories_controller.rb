@@ -58,7 +58,7 @@ module Api
 
     def distribution_centers
       @distribution_centers =
-        DistributionCenter.all.includes(:inventories, :stock_keeping_units)
+        DistributionCenter.all.includes(:inventories, inventories: :stock_keeping_unit)
     end
 
     def stock_keeping_unit

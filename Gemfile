@@ -18,6 +18,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.7'
   gem 'rubocop', '~> 0.53.0', require: false
   gem 'shoulda-matchers', '~> 3.1'
+  gem 'bullet'
 end
 
 group :development do

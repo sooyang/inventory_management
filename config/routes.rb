@@ -6,6 +6,7 @@ Rails.application.routes.draw do
         post :addition
         post :reduction
         post :reserve
+        get :current_stock_on_hand
       end
     end
   end

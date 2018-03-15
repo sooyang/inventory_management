@@ -67,7 +67,8 @@ module Api
     end
 
     def find_inventory
-      @inventory = Inventory.find_by(
+      return unless stock_keeping_unit && distribution_center
+      @inventory = Inventory.find_or_create_by(
         distribution_center: distribution_center,
         stock_keeping_unit: stock_keeping_unit
       )

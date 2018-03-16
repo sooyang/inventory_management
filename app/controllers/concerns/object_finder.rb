@@ -3,7 +3,7 @@ module ObjectFinder
   def distribution_center
     @distribution_center =
       DistributionCenter.find_by(
-        country: inventory_params[:distribution_center]
+        country: inventory_params[:distribution_center].capitalize
       )
   end
 

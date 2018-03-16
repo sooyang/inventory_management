@@ -1,11 +1,11 @@
-# Sephora
+# Inventory Management
 
 Simple inventory management system
 
 ### Usage
 
-1. Clone this repository by running `git clone https://github.com/sooyang/sephora.git`
-2. Enter this repository directory using `cd sephora`
+1. Clone this repository by running `git clone https://github.com/sooyang/inventory_management.git`
+2. Enter this repository directory using `cd inventory_management`
 3. Run `bundle install` to install all the required gems.
 4. Create the database by running `rails db:create && rails db:migrate`
 5. Run `rails db:seed` to populate the database with the required data

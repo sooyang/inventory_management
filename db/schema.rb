@@ -10,34 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_180_314_150_942) do
+ActiveRecord::Schema.define(version: 20180314150942) do
+
   # These are extensions that must be enabled in order to support this database
-  enable_extension 'plpgsql'
+  enable_extension "plpgsql"
 
-  create_table 'distribution_centers', force: :cascade do |t|
-    t.string 'country'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "distribution_centers", force: :cascade do |t|
+    t.string "country"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table 'inventories', force: :cascade do |t|
-    t.bigint 'distribution_center_id'
-    t.bigint 'stock_keeping_unit_id'
-    t.integer 'quantity_reserved'
-    t.integer 'quantity_shipped'
-    t.integer 'quantity_available'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['distribution_center_id'], name: 'index_inventories_on_distribution_center_id'
-    t.index ['stock_keeping_unit_id'], name: 'index_inventories_on_stock_keeping_unit_id'
+  create_table "inventories", force: :cascade do |t|
+    t.bigint "distribution_center_id"
+    t.bigint "stock_keeping_unit_id"
+    t.integer "quantity_reserved"
+    t.integer "quantity_shipped"
+    t.integer "quantity_available"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["distribution_center_id"], name: "index_inventories_on_distribution_center_id"
+    t.index ["stock_keeping_unit_id"], name: "index_inventories_on_stock_keeping_unit_id"
   end
 
-  create_table 'stock_keeping_units', force: :cascade do |t|
-    t.string 'code'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "stock_keeping_units", force: :cascade do |t|
+    t.string "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_foreign_key 'inventories', 'distribution_centers'
-  add_foreign_key 'inventories', 'stock_keeping_units'
+  add_foreign_key "inventories", "distribution_centers"
+  add_foreign_key "inventories", "stock_keeping_units"
 end

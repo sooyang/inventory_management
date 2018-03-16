@@ -6,7 +6,9 @@ class InventoryMovement
   end
 
   def receive
-    @inventory.increment!(:quantity_available, @quantity)
+    @inventory.increment(:quantity_available, @quantity)
+    @inventory.save
+    @inventory
   end
 
   def shipped

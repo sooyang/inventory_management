@@ -10,10 +10,10 @@ module Api
 
     def addition
       if @inventory
-        InventoryMovement.new(
+        inventory_added = InventoryMovement.new(
           @inventory, inventory_params[:quantity].to_i
         ).receive
-        render template: 'api/inventories/inventory', status: :ok
+        inventory_response(inventory_added)
       else
         error
       end

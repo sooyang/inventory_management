@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180316025301) do
+ActiveRecord::Schema.define(version: 20180316031816) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,9 +24,9 @@ ActiveRecord::Schema.define(version: 20180316025301) do
   create_table "inventories", force: :cascade do |t|
     t.bigint "distribution_center_id"
     t.bigint "stock_keeping_unit_id"
-    t.integer "quantity_reserved"
-    t.integer "quantity_shipped"
-    t.integer "quantity_available"
+    t.integer "quantity_reserved", default: 0
+    t.integer "quantity_shipped", default: 0
+    t.integer "quantity_available", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["distribution_center_id", "stock_keeping_unit_id"], name: "dc_sku_index", unique: true

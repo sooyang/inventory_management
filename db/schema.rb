@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180314150942) do
+ActiveRecord::Schema.define(version: 20180316025301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20180314150942) do
     t.integer "quantity_available"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["distribution_center_id", "stock_keeping_unit_id"], name: "dc_sku_index", unique: true
     t.index ["distribution_center_id"], name: "index_inventories_on_distribution_center_id"
     t.index ["stock_keeping_unit_id"], name: "index_inventories_on_stock_keeping_unit_id"
   end
